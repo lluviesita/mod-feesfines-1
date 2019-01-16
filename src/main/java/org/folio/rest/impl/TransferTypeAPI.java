@@ -177,8 +177,8 @@ public class TransferTypeAPI implements Transfertypes {
                                             GetTransfertypesByTransfertypeIdResponse.respond500WithTextPlain(
                                                     messages.getMessage(lang, MessageConsts.InternalServerError))));
                                 } else {
-                                    List<Transfertype> transfertypeList = (List<Transfertype>) getReply.result().getResults();
-                                    if (transfertypeList.size() < 1) {
+                                    List<Transfertype> transfertypeList = getReply.result().getResults();
+                                    if (transfertypeList.isEmpty()) {
                                         asyncResultHandler.handle(Future.succeededFuture(
                                                 GetTransfertypesByTransfertypeIdResponse.respond404WithTextPlain("Transfertype"
                                                         + messages.getMessage(lang,
